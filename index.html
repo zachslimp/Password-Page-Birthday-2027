@@ -2,79 +2,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gift Unlocker</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f2f5;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gift Unlocker</title>
+<style>
+    body {
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f2f5;
+    }
 
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-        }
+    .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        text-align: center;
+    }
 
-        input {
-            padding: 10px;
-            width: 80%;
-            margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+    input {
+        padding: 10px;
+        width: 80%;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
 
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 
-        button:hover {
-            background-color: #0056b3;
-        }
+    button:hover {
+        background-color: #0056b3;
+    }
 
-        #message {
-            margin-top: 1rem;
-            font-weight: bold;
-            color: green;
-        }
-    </style>
+    #message {
+        margin-top: 1rem;
+        font-weight: bold;
+        color: green;
+    }
+</style>
 </head>
+
 <body>
 
 <div class="card">
     <h2>Enter Password to Claim Gift</h2>
-    <input type="password" id="passwordInput" placeholder="Enter password...">
-    <br>
+
+    <input type="password" id="passwordInput" placeholder="Enter password">
+
     <button onclick="checkPassword()">Submit</button>
+
     <div id="message"></div>
 </div>
 
 <script>
-    function checkPassword() {
-        const input = document.getElementById('passwordInput').value.toUpperCase();
-        const messageDiv = document.getElementById('message');
+function checkPassword() {
+    const input = document.getElementById('passwordInput').value.toUpperCase();
+    const messageDiv = document.getElementById('message');
 
-        if (input === "SMOOTHSHIT55") {
-            messageDiv.textContent = "Congratulations! You've completed one year of puzzles. Your gift awaits...";
-            messageDiv.style.color = "green";
-        } else {
-            messageDiv.textContent = "Incorrect password. Try again.";
-            messageDiv.style.color = "red";
-        }
+    if (input === "THISISSMOOTH".toUpperCase()) {
+        messageDiv.textContent = "Congratulations! You've completed one year of puzzles. Your gift awaits...";
+        messageDiv.style.color = "green";
+    } else {
+        messageDiv.textContent = "Incorrect password. Try again.";
+        messageDiv.style.color = "red";
     }
+}
+
+document.getElementById('passwordInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        checkPassword();
+    }
+});
 </script>
 
 </body>
